@@ -1,28 +1,91 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="srj-qR-geo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="5lt-NC-s7G">
+        <!--Selection View Controller-->
+        <scene sceneID="O7l-dc-Rli">
             <objects>
-                <viewController id="GYL-22-rZr" customClass="ViewController" customModule="Overwatch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="srj-qR-geo" customClass="SelectionViewController" customModule="Overwatch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="z8f-AC-pGq"/>
-                        <viewControllerLayoutGuide type="bottom" id="cR2-hp-cdF"/>
+                        <viewControllerLayoutGuide type="top" id="sJh-03-GCf"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hw2-xe-COZ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="83F-ks-0eR">
+                    <view key="view" contentMode="scaleToFill" id="svz-sG-vRn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJ4-rs-bFq">
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CQO-8R-5i5">
+                                <segments>
+                                    <segment title="Offense"/>
+                                    <segment title="Defense"/>
+                                    <segment title="Tank"/>
+                                    <segment title="Support"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeInHeroType:" destination="srj-qR-geo" eventType="valueChanged" id="OZB-My-OrN"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ly-zK-gjh" userLabel="Container View">
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TL2-f5-qYX">
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="E0W-qO-ZL8"/>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="E0W-qO-ZL8" firstAttribute="height" secondItem="TL2-f5-qYX" secondAttribute="height" id="Ffz-Ps-4y2"/>
+                                            <constraint firstItem="E0W-qO-ZL8" firstAttribute="top" secondItem="TL2-f5-qYX" secondAttribute="top" id="JL9-Mh-YBu"/>
+                                            <constraint firstAttribute="width" secondItem="TL2-f5-qYX" secondAttribute="height" multiplier="1:1" id="LBJ-sh-Tw3"/>
+                                            <constraint firstItem="E0W-qO-ZL8" firstAttribute="width" secondItem="TL2-f5-qYX" secondAttribute="width" id="eS6-2O-0yJ"/>
+                                            <constraint firstItem="E0W-qO-ZL8" firstAttribute="trailing" secondItem="TL2-f5-qYX" secondAttribute="trailing" id="rwY-EU-5dw"/>
+                                            <constraint firstItem="E0W-qO-ZL8" firstAttribute="leading" secondItem="TL2-f5-qYX" secondAttribute="leading" id="vWW-iQ-krk"/>
+                                            <constraint firstItem="E0W-qO-ZL8" firstAttribute="bottom" secondItem="TL2-f5-qYX" secondAttribute="bottom" id="wvg-t9-T06"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4Ly-zK-gjh" secondAttribute="height" multiplier="1:1" id="Dom-PY-1Sm"/>
+                                    <constraint firstItem="TL2-f5-qYX" firstAttribute="leading" secondItem="4Ly-zK-gjh" secondAttribute="leading" id="PtB-DZ-yx9"/>
+                                    <constraint firstItem="TL2-f5-qYX" firstAttribute="bottom" secondItem="4Ly-zK-gjh" secondAttribute="bottom" id="TNB-W7-o4P"/>
+                                    <constraint firstItem="TL2-f5-qYX" firstAttribute="top" secondItem="4Ly-zK-gjh" secondAttribute="top" id="rps-i7-vaj"/>
+                                    <constraint firstItem="TL2-f5-qYX" firstAttribute="trailing" secondItem="4Ly-zK-gjh" secondAttribute="trailing" id="z6t-yo-pAQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4Ly-zK-gjh" firstAttribute="width" secondItem="svz-sG-vRn" secondAttribute="width" multiplier="0.9" id="5bn-l3-R5c"/>
+                            <constraint firstItem="4Ly-zK-gjh" firstAttribute="centerY" secondItem="svz-sG-vRn" secondAttribute="centerY" id="Bz7-Vr-rYZ"/>
+                            <constraint firstItem="CQO-8R-5i5" firstAttribute="trailing" secondItem="4Ly-zK-gjh" secondAttribute="trailing" id="P5E-HJ-Q5t"/>
+                            <constraint firstItem="CQO-8R-5i5" firstAttribute="top" secondItem="4Ly-zK-gjh" secondAttribute="bottom" constant="10" id="VJq-oa-omP"/>
+                            <constraint firstItem="NJ4-rs-bFq" firstAttribute="centerX" secondItem="svz-sG-vRn" secondAttribute="centerX" id="Xsr-mg-cCc"/>
+                            <constraint firstItem="NJ4-rs-bFq" firstAttribute="top" secondItem="sJh-03-GCf" secondAttribute="bottom" constant="40" id="bWy-OQ-h8G"/>
+                            <constraint firstItem="CQO-8R-5i5" firstAttribute="leading" secondItem="4Ly-zK-gjh" secondAttribute="leading" id="c6m-SZ-jDR"/>
+                            <constraint firstItem="4Ly-zK-gjh" firstAttribute="centerX" secondItem="svz-sG-vRn" secondAttribute="centerX" id="t1U-jb-Cfz"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="characterStackView" destination="E0W-qO-ZL8" id="ghI-u8-eZ9"/>
+                        <outlet property="characterStackViewWidth" destination="eS6-2O-0yJ" id="aEb-wN-hMt"/>
+                        <outlet property="containerView" destination="4Ly-zK-gjh" id="LMg-hJ-fs4"/>
+                        <outlet property="heroNameLabel" destination="NJ4-rs-bFq" id="Kks-vH-nWK"/>
+                        <outlet property="heroScrollView" destination="TL2-f5-qYX" id="zMB-WB-IGk"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aXW-Us-hQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gd5-MI-pnv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1308" y="118"/>
+            <point key="canvasLocation" x="-554.39999999999998" y="-43.628185907046479"/>
         </scene>
     </scenes>
 </document>
